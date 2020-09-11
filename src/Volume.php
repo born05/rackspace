@@ -150,7 +150,7 @@ class Volume extends FlysystemVolume
     public function getRootUrl()
     {
         if (($rootUrl = parent::getRootUrl()) !== false && $this->subfolder) {
-            $rootUrl .= rtrim($this->subfolder, '/').'/';
+            $rootUrl .= rtrim(Craft::parseEnv($this->subfolder), '/').'/';
         }
         return $rootUrl;
     }
