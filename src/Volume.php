@@ -253,7 +253,7 @@ class Volume extends FlysystemVolume
         $store = $client->objectStoreService('cloudFiles', $this->region);
         $container = $store->getContainer($this->container);
 
-        return new RackspaceAdapter($container, $this->subfolder);
+        return new RackspaceAdapter($container, Craft::parseEnv($this->subfolder));
     }
 
     /**
